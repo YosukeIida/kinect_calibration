@@ -87,7 +87,7 @@ static void print_calibration()
 
     uint32_t device_count = k4a_device_get_installed_count();
     cout << "Found " << device_count << " connected devices:" << endl;
-    cout << fixed << setprecision(6);
+    cout << fixed << setprecision(20);
 
     for (uint8_t deviceIndex = 0; deviceIndex < device_count; deviceIndex++)
     {
@@ -119,8 +119,8 @@ static void print_calibration()
             exit(-1);
         }
 
-        //auto calib = calibration.depth_camera_calibration;          // デプスカメラのキャリブレーションデータ
-        k4a_calibration_camera_t calib = calibration.color_camera_calibration;      // カラーカメラのキャリブレーション
+        k4a_calibration_camera_t calib = calibration.depth_camera_calibration;          // デプスカメラのキャリブレーションデータ
+        //k4a_calibration_camera_t calib = calibration.color_camera_calibration;      // カラーカメラのキャリブレーション
 
         //cout << "\n===== Device " << (int)deviceIndex << ": " << get_serial(device) << " =====\n";
         cout << "resolution width: " << calib.resolution_width << endl;
@@ -226,29 +226,59 @@ int main(int argc, char** argv)
 //Opened device : 000565502412
 //resolution width : 1920
 //resolution height : 1080
-//principal point x : 961.078613
-//principal point y : 553.434082
-//focal length x : 909.989563
-//focal length y : 909.638123
+//principal point x : 961.07861328125000000000      cx
+//principal point y : 553.43408203125000000000      cy
+//focal length x : 909.98956298828125000000         fx
+//focal length y : 909.63812255859375000000         fy
 //radial distortion coefficients :
-//k1: 0.467171
-//k2 : -2.458667
-//k3 : 1.370564
-//k4 : 0.349886
-//k5 : -2.295059
-//k6 : 1.306254
-//center of distortion in Z = 1 plane, x : 0.000000
-//center of distortion in Z = 1 plane, y : 0.000000
-//tangential distortion coefficient x : 0.001364
-//tangential distortion coefficient y : -0.000068
-//metric radius : 0.000000
+//k1: 0.46717128157615661621
+//k2 : -2.45866727828979492188
+//k3 : 1.37056386470794677734
+//k4 : 0.34988552331924438477
+//k5 : -2.29505944252014160156
+//k6 : 1.30625414848327636719
+//center of distortion in Z = 1 plane, x : 0.00000000000000000000
+//center of distortion in Z = 1 plane, y : 0.00000000000000000000
+//tangential distortion coefficient x : 0.00136364088393747807      p1
+//tangential distortion coefficient y : -0.00006751885666744784     p2
+//metric radius : 0.00000000000000000000
 //stop device
 //close device
 //
-//C : \Users\student\cpp_program\kinect_calibration\kinect_calibration\x64\Release\kinect_calibration.exe(プロセス 10972)  は、コード 0 で終了しました。
+//C : \Users\student\cpp_program\kinect_calibration\kinect_calibration\x64\Release\kinect_calibration.exe(プロセス 4936) は、コード 0 で終了しました。
 //デバッグが停止したときに自動的にコンソールを閉じるには、[ツール] ->[オプション] ->[デバッグ] ->[デバッグの停止時に自 動的にコンソールを閉じる] を有効にします。
 //このウィンドウを閉じるには、任意のキーを押してください...
 // 
 // 
 // ----------------------------------------------------------------------------
+//
+
+// デプスカメラの結果
+//
+//Found 1 connected devices :
+//Opened device : 000565502412
+//resolution width : 640
+//resolution height : 576
+//principal point x : 314.59005737304687500000
+//principal point y : 332.22369384765625000000
+//focal length x : 503.22808837890625000000
+//focal length y : 503.35195922851562500000
+//radial distortion coefficients :
+//k1: 2.48467683792114257812
+//k2 : 1.70563745498657226562
+//k3 : 0.09044291824102401733
+//k4 : 2.81460189819335937500
+//k5 : 2.50367665290832519531
+//k6 : 0.47529044747352600098
+//center of distortion in Z = 1 plane, x : 0.00000000000000000000
+//center of distortion in Z = 1 plane, y : 0.00000000000000000000
+//tangential distortion coefficient x : -0.00007825181819498539
+//tangential distortion coefficient y : 0.00002669491004780866
+//metric radius : 0.00000000000000000000
+//stop device
+//close device
+//
+//C : \Users\student\cpp_program\kinect_calibration\kinect_calibration\x64\Release\kinect_calibration.exe(プロセス 18084)  は、コード 0 で終了しました。
+//デバッグが停止したときに自動的にコンソールを閉じるには、[ツール] ->[オプション] ->[デバッグ] ->[デバッグの停止時に自 動的にコンソールを閉じる] を有効にします。
+//このウィンドウを閉じるには、任意のキーを押してください...
 //
